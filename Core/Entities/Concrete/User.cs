@@ -9,5 +9,10 @@
         public byte[] PasswordSalt { get; set; }
         public byte[] PasswordHash { get; set; }
         public bool Status { get; set; }
+        public string Github { get; set; }
+        
+        public string Linkedin { get; set; }
+        
+        public string WebSite { get; set; }
     }
 }

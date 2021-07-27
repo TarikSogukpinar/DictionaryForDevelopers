@@ -37,10 +37,8 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Word>(_wordDal.Get(u => u.WordName == wordName));
         }
-
-        [CacheAspect]
+        
         [ValidationAspect(typeof(WordValidator))]
-        [PerformanceAspect(5)]
         public IResult Add(Word word)
         {
             var result = BusinessRules.RunBusinessRules(CheckWordIfExists(word.WordName));

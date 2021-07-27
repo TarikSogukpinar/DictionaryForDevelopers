@@ -15,7 +15,7 @@ namespace Business.ValidationRules.FluentValidation
 
             RuleFor(c => c.Message).NotNull();
             RuleFor(c => c.Message).NotEmpty();
-            RuleFor(c => c.Message).MinimumLength(2);
+            RuleFor(c => c.Message).MinimumLength(5);
         }
     }
 }

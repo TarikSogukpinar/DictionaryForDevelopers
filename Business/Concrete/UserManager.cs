@@ -77,8 +77,6 @@ namespace Business.Concrete
             return new SuccessResult(Messages.PasswordChanged);
         }
 
-
-    
         public IResult Add(User user)
         {
             _userDal.Add(user);

@@ -3,9 +3,11 @@ using Core.Extensions;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
+using DataAccess.Concrete.EntityFramework.Contexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,7 +29,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            
+
             //Cors İnjectionf
             services.AddCors();
 
@@ -52,8 +54,18 @@ namespace WebAPI
             {
                 new CoreModule()
             });
-            
+
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "English", Version = "v1"}); });
+
+            services.AddDbContext<MsDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DArchMsContext"));
+            });
+            
+            services.AddDbContext<PostgreDbContext>(options =>
+            {
+                options.UseNpgsql(Configuration.GetConnectionString("DArchPgContext"));
+            });
         }
 
 

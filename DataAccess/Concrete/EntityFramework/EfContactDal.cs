@@ -5,9 +5,9 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfContactDal : EfEntityRepositoryBase<Contact, MsDbContext>, IContactDal
+    public class EfContactDal : EfEntityRepositoryBase<Contact, PostgreDbContext>, IContactDal
     {
-        public EfContactDal(MsDbContext context) : base(context)
+        public EfContactDal(PostgreDbContext context) : base(context)
         {
         }
     }

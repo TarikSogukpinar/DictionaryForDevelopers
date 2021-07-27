@@ -5,9 +5,9 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfWordDal : EfEntityRepositoryBase<Word, MsDbContext>, IWordDal
+    public class EfWordDal : EfEntityRepositoryBase<Word, PostgreDbContext>, IWordDal
     {
-        public EfWordDal(MsDbContext context) : base(context)
+        public EfWordDal(PostgreDbContext context) : base(context)
         {
         }
     }

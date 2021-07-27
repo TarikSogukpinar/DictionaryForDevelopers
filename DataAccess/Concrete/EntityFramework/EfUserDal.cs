@@ -7,9 +7,9 @@ using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfUserDal : EfEntityRepositoryBase<User, MsDbContext>, IUserDal
+    public class EfUserDal : EfEntityRepositoryBase<User, PostgreDbContext>, IUserDal
     {
-        public EfUserDal(MsDbContext context) : base(context)
+        public EfUserDal(PostgreDbContext context) : base(context)
         {
         }
 
