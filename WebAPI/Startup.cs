@@ -30,7 +30,7 @@ namespace WebAPI
         {
             services.AddControllers();
 
-            //Cors İnjectionf
+            //Cors İnjection
             services.AddCors();
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
